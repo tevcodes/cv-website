@@ -10,8 +10,29 @@
   </head>
   <body>
     <div id="app">
+
+      <nav class="navbar">
+       <div class="nav-content">
+       <div class="logo">TD</div>
+
+      <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      </div>
+
+        <div class="nav-links">
+        <a href="#background">Background</a>
+        <a href="#skills">Skills</a>
+        <a href="#tools">Personal Tools</a>
+        <a href="#profiles">Profiles</a>
+        <a href="#resume">Resume</a>
+        </div>
+       </div>
+      </nav>
+
       <main class="container">
-        <!-- HERO -->
+
         <section class="hero">
           <img
             src="/avataaars.png"
@@ -24,8 +45,7 @@
           </p>
         </section>
 
-        <!-- ABOUT -->
-        <section class="card">
+        <section class="card" id="background">
           <h2>Background</h2>
           <p>
           Full-stack developer with 4.5+ years of experience, 
@@ -39,49 +59,65 @@
           </p>
         </section>
 
-        <!-- SKILLS -->
-        <section class="card">
+   
+        <section class="card" id="skills">
           <h2>Technical Skills</h2>
           <ul class="skills">
             <li>JavaScript (ES6+)</li>
             <li>Typescript</li>
-            <li>Vue.js, Vite and Webpack</li>
+            <li>Vue.js via Vite and Webpack</li>
             <li>Express.js</li>
             <li>Node.js</li>
             <li>Firebase (Auth, Firestore, Functions)</li>
             <li>Google Cloud Platform</li>
             <li>MongoDB</li>
-            <li>Git & GitHub for version control</li>
+            <li>Git</li>
             <li>Linux (learning)</li>
           </ul>
         </section>
 
-        <!-- BLOG -->
-         <section class="card project-card">
+   
+         <section class="card project-card" id="tools">
            <h2>Personal Tools</h2>
-
-           <div class="video-conatiner">
-            <video controls class="project-video">
-            <source src="/Blog.mp4" type="video/mp4">
-             Your browser does not support the video tag.
-             </video>
-           </div>
-
-           <div class="project-content">
-             <h3>Automated Market Research Tool</h3>
-              <p>
-              I built a custom automated market research tool leveraging Google Sheets, 
+           <div class="carousal-container">
+            <div class="project-card">
+              <div class="media-container">
+                <video controls preload="metadata" class="project-media">
+                  <source src="/Blog.mp4" type="video/mp4">
+                </video>
+              </div>
+             <div class="project-content">
+              <h3>Automated News Research Tool</h3>
+              <p> I built a custom automated market research tool leveraging Google Sheets, 
               Google Apps Script, and Looker Studio. This project demonstrates how 
               integrated cloud ecosystems can replace expensive third-party SaaS for 
               specialized productivity needs. By automating data collection and 
               visualizing trends in real-time, I've streamlined a process that 
-              typically takes hours into a hands-off, serverless workflow.
-            </p>
+              typically takes hours into a hands-off, serverless workflow.</p>
+             </div>
+            </div>
+
+            <div class="project-card">
+              <div class="media-container">
+                <img src="/psl.png" alt="PSL Dashboard Screenshot" class="project-media">
+              </div>
+              <div class="project-content">
+                <h3>PSL Analysis Dashboard</h3>
+                <p>A "robot" ingestor tracking xG metrics for the South African Premier Soccer League.</p>
+                <div class="project-links">
+                  <button class="project-btn" data-url="https://github.com/tevcodes/Football-Analytics-Pipeline">
+                  View Code
+                  </button>
+                </div>
+              </div>
+            </div>
+
            </div>
+           <p class="carousal-hint">Swipe to see more →</p>
          </section>
 
-        <!-- ACTIONS -->
-        <section class="card actions">
+      
+        <section class="card actions" id="profiles">
           <h2>Profiles</h2>
           <div class="buttons">
             <button data-url="https://github.com/tevcodes">GitHub</button>
@@ -91,13 +127,13 @@
             <button
               data-url="https://www.skills.google/public_profiles/f3d41bca-cd3e-40b8-9d08-3c1a548635e5"
             >
-              Google Skills Boost (New personal profile)
+              Google Skills
             </button>
           </div>
         </section>
 
-        <!-- CV DOWNLOAD -->
-        <section class="card download">
+     
+        <section class="card download" id="resume">
           <h2>Curriculum Vitae</h2>
           <a
             class="download-btn"
