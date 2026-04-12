@@ -4,6 +4,8 @@ import "./style.css";
 
 const menu = document.querySelector('#mobile-menu');
 const navLinks = document.querySelector('.nav-links');
+const textElement = document.querySelector(".typing-text");
+const phrases = ["npm install coffee", "npm install granola", "npm install sport"];
 
 menu.addEventListener('click', () => {
   menu.classList.toggle('is-active');
@@ -42,3 +44,37 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     }
   });
 });
+
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function type() {
+  const currentPhrase = phrases[phraseIndex];
+
+  if (isDeleting) {
+    textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+    charIndex++;
+  }
+
+  let typeSpeed = isDeleting ? 60 : 120;
+
+  if (!isDeleting && charIndex === currentPhrase.length) {
+    typeSpeed = 2000;
+    isDeleting = true;
+  }
+
+  else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+
+    phraseIndex = (phraseIndex + 1) % phrases.length;
+    typeSpeed = 500;
+  }
+
+  setTimeout(type, typeSpeed)
+}
+
+type();

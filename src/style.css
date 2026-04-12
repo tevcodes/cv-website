@@ -112,6 +112,35 @@ body {
   font-size: 1.1rem;
 }
 
+.terminal-loader {
+  font-family: 'Fira Code', monospace;
+  background: #020617;
+  color: var(--primary);
+  padding: 8px 15px;
+  border-radius: 4px;
+  border: 1px solid --border;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.prompt {
+  color: #10b981;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.typing-text {
+  border-right: 2px solid --primary;
+  padding-right: 2px;
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--primary);}
+}
+
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
