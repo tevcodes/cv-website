@@ -177,11 +177,8 @@ body {
 
 .carousal-container {
   display: flex;
-  overflow-x: auto;
   gap: 1.5rem;
   padding-bottom: 1.5rem;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
 }
 
 .carousal-container::-webkit-scrollbar {
@@ -189,13 +186,20 @@ body {
 }
 
 .project-card {
-  flex: 0 0 85%;
+  flex: 0 0 85%; 
   scroll-snap-align: start;
   background: #020617;
   border-radius: 12px;
-  border: 1px solid --border;
+  border: 1px solid var(--border); 
   display: flex;
   flex-direction: column;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .media-container {
@@ -222,10 +226,12 @@ body {
 .project-btn {
   background: transparent;
   color: var(--primary);
-  border: 1px solid --primary;
+  border: 1px solid var(--primary); /* Added var() */
   padding: 0.5rem 1rem;
   font-size: 0.85rem;
   width: auto;
+  cursor: pointer; /* Makes it feel like a real button on desktop */
+  border-radius: 4px;
 }
 
 .project-btn:hover {
@@ -350,5 +356,38 @@ footer {
   }
   .carousal-hint {
     display: none; 
+  }
+}
+
+@media (max-width: 1023px) {
+  .carousal-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .carousal-container::-webkit-scrollbar {
+    display: none;
+  }
+  .carousal-hint {
+    display: block; /* Show hint only on mobile */
+  }
+}
+
+/* --- Desktop Only (Grid behavior - NO SCROLL) --- */
+@media (min-width: 1024px) {
+  .carousal-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    overflow-x: visible;
+  }
+  
+  .project-card {
+    flex: unset; /* Remove the 85% width on desktop */
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .carousal-hint {
+    display: none; /* Hide "Swipe" hint on desktop */
   }
 }
